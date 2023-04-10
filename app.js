@@ -36,8 +36,7 @@ var delbtn=document.createElement('button');
 delbtn.className="btn btn-danger btn-sm float-right";
 for(var i=0;i<itemlist.length;i++){
     document.children[i].appendChild(delbtn.appendChild(document.createTextNode('Ed')));
-console.log("krishna");
-}
+
 
 
 
