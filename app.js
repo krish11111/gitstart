@@ -2,13 +2,14 @@
 var form=document.getElementById('addForm');
 var itemlist=document.getElementById('items');
 
-
+var filter =document.getElementById('filter');
 
 
 
 
 document.addEventListener('submit',add);
 document.addEventListener('click',remove)
+filter.addEventListener('keyup',addFilter);
 
 function add(e){
     e.preventDefault();
@@ -32,10 +33,23 @@ function remove(e){
     }
    
 }
-var delbtn=document.createElement('button');
-delbtn.className="btn btn-danger btn-sm float-right";
-for(var i=0;i<itemlist.length;i++){
-    document.children[i].appendChild(delbtn.appendChild(document.createTextNode('Ed')));
+ function addFilter(e){
+    var text=e.target.value.toLowerCase()
+    console.log(text);
+    var items=itemlist.getElementsByTagName('li');
+   
+    console.log(items[0].innerText);
+Array.from(items).forEach(function(item){
+    var name=item.firstChild.textContent;
+    if(name.toLowerCase().indexOf(text)!=-1){
+        item.style.display='block'
+    }else{
+        item.style.display='none';
+    }
+    
+   });
+
+ }
 
 
 
